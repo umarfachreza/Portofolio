@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">              
+            <div class="col-md-10" style="background-color:#FFCC99; height: 91.5vh; opacity: 0.6;">
+            </div>
+            <div class="col-md-10" style= "position: absolute;z-index: 1; top: auto;">
+                
+            <section class="login-block">
+                <div class="container-fluid">
+                    <h3 class="text-left";">hi {{login.reviewer_name.iloc[0]}},</h3>
+                    <h5 class="text-left";">This Recommendation Place to Stay if go to {{lokasi}}.</h5>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            {% for i in range(10): %}
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{i+1}}"></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active" style="height: 570px">
+                                <div class="row">
+                                    <div class="col-md-9 pt-2 banner-sec">
+                                        <img class="d-block img-fluid" src="{{hasil_pred.picture_url.iloc[0]}}" style='width: auto; height: 300px;' alt="First slide">
+                                        <div class="carousel-caption d-none d-md-block">
+                                        </div>
+                                        <div class="banner-text">
+                                            <h2 style="color: black;">{{ hasil_pred.name.iloc[0] }}</h2>   
+                                            <h5 class="float-left" style="color: black;">Describe :</h5>                                            
+                                            <h5 class="float-right" style="color: black;">Price : $ {{ hasil_pred.price.iloc[0]}}</h5>   
+                                            <div style="overflow:hidden;width:875px;height:120px;" >
+                                                <p>{{ hasil_pred.description.iloc[0]}}</p>
+                                            </div>                                         
+                                                                               
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 pt-2 login-sec">
+                                        <div class="row mt-1">
+                                            <div class="col-md-5">
+                                                <h6  style="color: black;">Rating</h6>                                                                                        
+                                            </div>
+                                            <div class="col-md-7">                                            
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_rating.iloc[0]}} ({{ hasil_pred.number_of_reviews.iloc[0]}} Reviews)</h6>                                                                                        
+                                            </div>                                   
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-5">                                           
+                                                <h6  style="color: black;">Location</h6>
+                                                <h6  style="color: black;">Cleanliness</h6>                                                                                            
+                                                <h6  style="color: black;">Checkin</h6>                                                
+                                                <h6  style="color: black;">Accuracy</h6>
+                                                <h6  style="color: black;">Communication</h6>
+                                                <h6  style="color: black;">Value</h6>
+                                            </div>
+                                            <div class="col-md-7">                                            
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_location.iloc[0]}}/10</h6>                                   
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_cleanliness.iloc[0]}}/10</h6>                                                                                            
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_checkin.iloc[0]}}/10</h6>                                                
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_accuracy.iloc[0]}}/10</h6>
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_communication.iloc[0]}}/10</h6>
+                                                <h6  style="color: black;">: {{ hasil_pred.review_scores_value.iloc[0]}}/10</h6>
+                                            </div>                                   
+                                        </div>
+                                    </div>                                                
+                                </div>
+                            </div>
+                            {% for index,item in hasil_pred[1:].iterrows(): %}
+                            <div class="carousel-item" style="height: 570px">
+                                <div class="row">
+                                    <div class="col-md-9 pt-2 banner-sec">
+                                        <a href="{{item.loc["listing_url"]}}">
+                                        <img class="d-block img-fluid rounded" src="{{item.loc["picture_url"]}}" style='width: auto; height: 300px; object-fit: contain' alt="First slide">
+                                        </a>
+                                        <div class="carousel-caption d-none d-md-block">
+                                        </div>
+                                        <div class="banner-text">
+                                            <h2 style="color: black;">{{ item.loc["name"] }}</h2>
+                                            <h5 class="float-left" style="color: black;">Describe :</h5>                            
+                                            <h5 class="float-right" style="color: black;">Price : $ {{ item.loc['price']}}/Night</h5>
+                                            <div style="overflow:hidden;width:875px;height:120px;">
+                                                <p style="color: black;">{{ item.loc['description']}}</p>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 pt-2 login-sec">
+                                        <div class="row mt-1">
+                                            <div class="col-md-5">
+                                                <h6  style="color: black;">Rating</h6>                                                                                        
+                                            </div>
+                                            <div class="col-md-7">                                            
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_rating']}} ({{ item.loc['number_of_reviews']}} Reviews)</h6>                                                                                        
+                                            </div>                                   
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-5">                                           
+                                                <h6  style="color: black;">Location</h6>
+                                                <h6  style="color: black;">Cleanliness</h6>                                                                                            
+                                                <h6  style="color: black;">Checkin</h6>                                                
+                                                <h6  style="color: black;">Accuracy</h6>
+                                                <h6  style="color: black;">Communication</h6>
+                                                <h6  style="color: black;">Value</h6>
+                                            </div>
+                                            <div class="col-md-7">                                            
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_location']}}/10</h6>                                   
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_cleanliness']}}/10</h6>                                                                                            
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_checkin']}}/10</h6>                                                
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_accuracy']}}/10</h6>
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_communication']}}/10</h6>
+                                                <h6  style="color: black;">: {{ item.loc['review_scores_value']}}/10</h6>
+                                            </div>                                   
+                                        </div>                                           
+                                    </div>                                                
+                                </div>                            	                                
+                            </div>
+                            {% endfor %}                            
+                        </div>	   
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>                            
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

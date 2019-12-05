@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center" >
+            <div class="col-md-8" style="background-color:#FFCC99;height: 92vh; opacity: 0.5">
+            </div>
+            <div class="col-md-5 pt-3" style= "position: absolute;z-index: 1; top: auto;">
+                <h4 class="text-center">Airbnb Amsterdam Price Predicts Model</h4>
+                <form action="/prediction" method="POST">
+                        <select class="form-control mt-3" name="neighbourhood_cleansed" id="">
+                            <option value="Select Location" disabled selected>Select Location</option>
+                            {% for item in data_location %}
+                                <option value="{{item}}">{{item}}</option>
+                            {% endfor %}
+                        </select>
+                    <div class="row ">   
+                        <div class="col-md-6 ">
+                            <select class="form-control mt-3" name="property_type" id="">
+                                <option value="" disabled selected>Property type</option>
+                                {% for item in property_type %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 ">                        
+                            <select class="form-control mt-3" name="room_type">
+                                <option value="Size Type" disabled selected>room Type</option>
+                                {% for item in room %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row ">   
+                        <div class="col-md-6 ">
+                            <input type="number" min="0" step="1" max="8" name="accommodates" placeholder="number of accommodates" class="form-control mt-3">
+                            <input type="number" min="0" step="1" max="5" name="bedrooms" placeholder="number of bedrooms" class="form-control mt-3">
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="number" min="0" step="1" max="8" name="beds" placeholder="number of beds" class="form-control mt-3">
+                            <input type="number" min="0" step="1" max="4" name="bathrooms" placeholder="number of bathroom" class="form-control mt-3">
+                        </div>
+                    </div>        
+                    <!-- <input type="number" min="0" step="1" max="365" name="availability_365" placeholder="availability_365" class="form-control mt-3"> -->
+                    <label class="mdb-main-label mt-3" style="font-weight: bold;">FASILITAS</label>
+                    <div class="row ">                        
+                        <div class="col-md-6 ">
+                            <input type="number" min="0" step="1" max="1" name="new_Hottub" placeholder="Hottub" class="form-control mt-1">
+                            <input type="number" min="0" step="1" max="1" name="new_Indoorfireplace" placeholder="Indoor fireplace" class="form-control mt-1">
+                        </div>
+                        <div class="col-md-6 ">
+                            <!-- <input type="number" min="0" step="1" max="1" name="new_Hairdryer" placeholder="Hairdryer" class="form-control"> -->
+                            <input type="number" min="0" step="1" max="1" name="new_Kitchen" placeholder="Kitchen" class="form-control mt-1">
+                            <input type="number" min="0" step="1" max="1" name="new_Laptopfriendlyworkspace" placeholder="Laptop friendly workspace" class="form-control mt-1">
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <!-- <input type="number" min="0" step="1" max="1" name="new_Hottub" placeholder="Hottub" class="form-control"> -->
+                            <input type="number" min="0" step="1" max="1" name="new_Iron" placeholder="Iron" class="form-control mt-1">
+                            <input type="number" min="0" step="1" max="1" name="new_family" placeholder="family" class="form-control mt-1">
+                        </div>
+                        <div class="col-md-6">        
+                            <!-- <input type="number" min="0" step="1" max="1" name="new_Indoorfireplace" placeholder="Indoor fireplace" class="form-control"> -->
+                            <input type="number" min="0" step="1" max="1" name="new_baby_friendly" placeholder="baby friendly" class="form-control mt-1">
+                            <input type="number" min="0" step="1" max="1" name="new_TV" placeholder="TV" class="form-control mt-1">
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="number" min="0" step="1" max="16" name="guests_included" placeholder="number of guests included" class="form-control mt-3">
+                            <!-- <input type="number" min="0" step="1" max="100" name="extra_people" placeholder="price for extra people" class="form-control mt-3"> -->
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" min="0" step="1" max="1" name="security_deposit" placeholder="security_deposit" class="form-control mt-3">
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control mt-3" name="cancellation_policy">
+                                <option value="Size Type" disabled selected>cancellation policy</option>
+                                {% for item in cancel %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>            
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger mt-3">Predicts</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    
+{% endblock body %}

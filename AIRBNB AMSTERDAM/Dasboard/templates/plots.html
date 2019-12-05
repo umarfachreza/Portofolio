@@ -1,0 +1,98 @@
+{% extends 'Layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">    
+            <div class="col-md-10" style="background-color:#Fff; height: 90vh; opacity: 0.8;">
+            </div>
+            <div class="col-md-10" style= "position: absolute;z-index: 1; top: auto;">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>                        
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                        
+                    </ol>
+                    <div class="d-flex justify-content-center">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active" style="height: 630px">
+                                <div class="d-flex justify-content-center">
+                                    <div class="chart"  id="Dist_harga" style="width: 1200px; height: 630px">
+                                    
+                                    </div>                        
+                                </div>	                    
+                            </div>
+                            <div class="carousel-item" style="height: 630px">
+                                <div class="d-flex justify-content-center">
+                                    <div class="chart"  id="Dist_harga2" style="width: 1200px; height: 600px">
+                                    
+                                    </div>                        
+                                </div>	                    
+                            </div>
+                            <div class="carousel-item" style="height: 630px">
+                                <div class="d-flex justify-content-center">
+                                    <div class="chart"  id="Dist_harga1" style="width: 1200px; height: 600px">
+                                    
+                                    </div>                        
+                                </div>	                    
+                            </div>
+                            <div class="carousel-item" style="height: 630px">
+                                <div class="d-flex justify-content-center">
+                                    <div class="chart"  id="Dist_harga3" style="width: 1200px; height: 600px">
+                                    
+                                    </div>                        
+                                </div>	                    
+                            </div>
+                            <div class="carousel-item" style="height: 630px">
+                                <div class="d-flex justify-content-center mt-5">
+                                    <div class="chart"  id="Dist_harga4" style="width: 1000px; height: 800px">
+                                    
+                                    </div>                        
+                                </div>	                    
+                            </div>
+                            <!-- <h1>Data Visualization</h1>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                        <h2>Distribution harga</h2>
+                                        <div class="chart" id="Dist_harga1">
+                        
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="col-md-6">
+                                        <h2>Distribution vs Lokasi</h2>
+                                        <div class="chart" id="Dist_harga">
+                        
+                                        </div>
+                                </div>
+                            </div> -->
+                        </div>   
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>                            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var Dist_harga = {{data|safe}};
+        Plotly.plot('Dist_harga',Dist_harga,{});
+        var Dist_harga1 = {{data1|safe}};
+        Plotly.plot('Dist_harga1',Dist_harga1,{});
+        var Dist_harga2 = {{data2|safe}};
+        Plotly.plot('Dist_harga2',Dist_harga2,{});
+        var Dist_harga3 = {{data3|safe}};
+        Plotly.plot('Dist_harga3',Dist_harga3,{});        
+        var Dist_harga4 = {{data4|safe}};
+        Plotly.plot('Dist_harga4',Dist_harga4,{});
+    </script>
+
+{% endblock body %}

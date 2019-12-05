@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">              
+            <div class="col-md-10" style="background-color:#FFCC99; height: 92vh; opacity: 0.5;">
+            </div>
+            <div class="col-md-10" style= "position: absolute;z-index: 1; top: auto;">
+                
+            <section class="login-block">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2 login-sec">
+                            <h2 class="text-center">welkom in amsterdam</h2>
+                            <div class="pt-3">
+                                <h6>Lets Found Unique places to stay for your next trip, Login Now!</h6>
+                                <form class="login-form pt-3" action="/login" method="POST">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+                                        <input type="text" name="reviews_id" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                                        <input type="password" name="pass_id" class="form-control" placeholder="">
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-danger mt-3 float-right">Submit</button>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-10 banner-sec">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active" style="height: 630px">
+                                        <img class="d-block img-fluid" src="https://nos.nl/data/image/2017/03/23/363399/2048x1152.jpg" style='width: auto; height: 630px;' alt="First slide">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <div class="banner-text">
+                                                <h2>Johan Cruijff Arena</h2>
+                                            </div>	
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 630px">
+                                        <img class="d-block img-fluid" src="https://images.pexels.com/photos/2026451/pexels-photo-2026451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style='width: auto; height: 630px;' alt="First slide">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <div class="banner-text">
+                                                <h2>Windmill village</h2>
+                                            </div>	
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="height: 630px">
+                                        <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1546905002-af9d9a15880a?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" style='width: max-content; height: 630px;' alt="First slide">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <div class="banner-text">
+                                                <h2>Tulips Flowers</h2>
+                                            </div>	
+                                        </div>
+                                    </div>
+                                </div>	                               
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </section>
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

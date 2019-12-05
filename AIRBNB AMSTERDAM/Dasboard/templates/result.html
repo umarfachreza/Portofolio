@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center pt-2">              
+            <div class="col-md-10" style="background-color:#FFCC99; height: 91vh; opacity: 0.5;">
+            </div>
+            <div class="col-md-10" style= "position: absolute;z-index: 1; top: auto;">
+                <!-- <h1>
+                    Harganya adalah Adalah = {{hasil_pred}}
+                </h1> -->
+                <div class="row ">
+                    <div class="col-md-5 mt-5" style="height: 200px;">
+                        <!-- <h2>Distribution harga di daerah sana</h2> -->
+                        <div class="chart" id="Dist_harga" style="height: 300px;">
+        
+                        </div>
+                    </div>
+                    <div class="col-md-7" style="height: 200px;">
+                        <!-- <h2>Distribution harga di daerah sana</h2> -->
+                        
+                        <h4 class="text-center mt-3">
+                            The predict result is ${{hasil_pred}}
+                        </h4> 
+                        <h6 class="text-left mt-5">
+                            Top 5 Expensive 
+                        </h6> 
+                        
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    {%  for item in table.columns%}
+                                        <th>{{item}}</th>
+                                    {%  endfor  %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for index,item in table.iterrows() %}
+                                    <tr>
+                                        {% for col in item %}
+                                            <td>{{col}}</td>
+                                        {% endfor %}
+                                        <!-- <td>{{item['Name']}}</td>
+                                        <td>{{item['Type 1']}}</td>
+                                        <td>{{item['Type 2']}}</td>
+                                        <td>{{item['Total']}}</td>
+                                        <td>{{item['Total']}}</td> -->
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var Dist_harga = {{dist|safe}};
+        Plotly.plot('Dist_harga',Dist_harga,{});
+    </script>
+{% endblock body %}
