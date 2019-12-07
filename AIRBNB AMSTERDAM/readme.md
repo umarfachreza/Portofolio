@@ -57,11 +57,18 @@ The system will give the result of price based on the selected features, the top
 
 ### 2. Recommendation System
 
-The system will give recommendation based last hotel we stay. first we must login to know data users.
+The system will give recommendation in location we want based last hotel we stay. first we must login to know data users.
 
 ![Login_page](/AIRBNB%20AMSTERDAM/Images/Login_page.PNG)
 
+After Login we can see where we stay on the last trip, and our reviews. in this page we can input our next destination. 
 
 ![Result_login_page](/AIRBNB%20AMSTERDAM/Images/Result_login_page.PNG)
 
+After you fill the location, and click on get recomendation. it will bring you to the Recomendation result page. you can see top 10 places to stay in location you choose which has similiar fasilitas with your last hotel.
+
 ![Result_recomendation_page](/AIRBNB%20AMSTERDAM/Images/Result_recomendation_page.PNG)
+
+
+## Thank you for your attention. I hope you enjoy my project. 😊
+✉ fachrezaumar@gmail.com
